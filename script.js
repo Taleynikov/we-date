@@ -36,6 +36,14 @@ $(document).ready(() => {
     setInterval(() => {
         callThisShit();
     }, 1000);
+
+    // screen.orientation.onchange = (s) => {
+    //     console.log(s)
+    // };
+
+    screen.orientation.addEventListener('change', (s) => {
+        document.write('oga')
+    });
 });
 
 function callThisShit() {

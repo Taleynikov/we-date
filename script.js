@@ -37,19 +37,31 @@ $(document).ready(() => {
         callThisShit();
     }, 1000);
 
-    // screen.orientation.onchange = (s) => {
-    //     console.log(s)
-    // };
-
     screen.orientation.addEventListener('change', (s) => {
-        document.write('oga')
+        if (screen.orientation.type === 'landscape-primary') {
+            addSlides(slider);
+        } else {
+            removeSlides(slider);
+        }
     });
 });
+
+function addSlides(slickSlider) {
+    slickSlider.slick('slickAdd', '<div class="we-slider__slide"><img class="we-image" src="./assets/stickers/kiss.png" alt="мне лень"><div class="we-content"><div class="fw-900">мы поцеловались</div><div class="fw-900">31 декабря 2019</div><div class="divider-size">это</div><div class="weKissYears fw-900">n лет</div><div class="weKissMonths fw-700">n месяцев</div><div class="weKissDays fw-500">n дней</div><div class="weKissHours fw-400">n часов</div><div class="weKissMinutes fw-300">n минут</div><div class="weKissSeconds fw-300">n секунд</div></div></div>');
+    slickSlider.slick('slickAdd', '<div class="we-slider__slide"><img class="we-image" src="./assets/stickers/fuck.png" alt="мне лень"><div class="we-content"><div class="fw-900">первый секс</div><div class="fw-900">2 января 2020</div><div class="divider-size">это</div><div class="weFuckYears fw-900">n лет</div><div class="weFuckMonths fw-700">n месяцев</div><div class="weFuckDays fw-500">n дней</div><div class="weFuckHours fw-400">n часов</div><div class="weFuckMinutes fw-300">n минут</div><div class="weFuckSeconds fw-300">n секунд</div></div></div>');
+}
+
+function removeSlides(slickSlider) {
+    slickSlider.slick('slickRemove', 3);
+    slickSlider.slick('slickRemove', 3);
+}
 
 function callThisShit() {
     weMeet();
     weDate();
     weMarried();
+    weKiss();
+    weFuck();
 }
 
 function weMeet() {
@@ -62,6 +74,14 @@ function weDate() {
 
 function weMarried() {
     calcDates('weMarried', '31-08-2021');
+}
+
+function weKiss() {
+    calcDates('weKiss', '31-12-2019');
+}
+
+function weFuck() {
+    calcDates('weFuck', '02-01-2020');
 }
 
 function calcDates(preSelector, fromDate) {

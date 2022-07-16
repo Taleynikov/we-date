@@ -37,8 +37,10 @@ $(document).ready(() => {
         callThisShit();
     }, 1000);
 
-    screen.orientation.addEventListener('change', (s) => {
-        if (screen.orientation.type === 'landscape-primary') {
+    window.addEventListener('resize', () => {
+        const isLandscape = screen.availWidth > screen.availHeight;
+
+        if (isLandscape) {
             addSlides(slider);
         } else {
             removeSlides(slider);
